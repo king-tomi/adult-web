@@ -1,0 +1,1 @@
+This is a simple web app to demonstrate the use of flask for deploying a machine learning model
