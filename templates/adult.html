@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            input {
+                border-radius: 5em;
+            }
+        </style>
+        <title>Salary predictor app</title>
+    </head>
+    <body>
+        <h2>
+            Hello, and welcome to a salary predictor app.<br>This App aims to predict if a worker will
+            earn above $50 dollars at the end of a professional year or not.
+        </h2>
+        <p>
+            enter the values in the required format below
+        </p>
+        <section>
+        <!--creating the fields for collecting data -->
+            <form action="{{url_for('predict')}}" method="POST">
+                <p>
+                    <label for="age">Age</label>
+                    <input type="text" name="age" class="form-control">
+                </p>
+
+                <p>
+                    <label for="workclass">workclass</label>
+                    <input type="text" name="workclass" class="form-control">
+                </p>
+
+                <p>
+                    <label for="fnlgwt">fnlgwt</label>
+                    <input type="text" name="fnlgwt" class="form-control">
+                </p>
+
+                <p>
+                    <label for="education">education</label>
+                    <input type="text" name="education" class="form-control">
+                </p>
+
+                <p>
+                    <label for="education_num">education number</label>
+                    <input type="text" name="education_num" class="form-control">
+                </p>
+
+                <p>
+                    <label for="marital_status">marital status</label>
+                    <input type="text" name="marital_status" class="form-control">
+                </p>
+
+                <p>
+                    <label for="occupation">occupation</label>
+                    <input type="text" name="occupation" class="form-control">
+                </p>
+
+                <p>
+                    <label for="relationship">relationship</label>
+                    <input type="text" name="relationship" class="form-control">
+                </p>
+
+                <p>
+                    <label for="race">race</label>
+                    <input type="text" name="race" class="form-control">
+                </p>
+
+                <p>
+                    <label for="sex">sex</label>
+                    <input type="text" name="sex" class="form-control">
+                </p>
+
+                <p>
+                    <label for="capital_gain">capital gain</label>
+                    <input type="text" name="capital_gain" class="form-control">
+                </p>
+
+                <p>
+                    <label for="capital_loss">capital loss</label>
+                    <input type="text" name="capital_loss" class="form-control">
+                </p>
+
+                <p>
+                    <label for="hours_per_week">hours per week</label>
+                    <input type="text" name="hours_per_week" class="form-control">
+                </p>
+
+                <p>
+                    <label for="native_country">native country</label>
+                    <input type="text" name="native_country" class="form-control">
+                </p>
+                
+                <button type="submit" class="btn btn-primary">predict</button>
+
+            </form>
+        </section>
+        <div class="primary">
+                <p>{{ text }}</p>
+        </div>
+    </body>
+</html>
