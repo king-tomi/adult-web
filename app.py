@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request, url_for, jsonify
 import pickle
 import numpy as np
-import pandas as pd
+import pandas
 
 app = Flask(__name__,template_folder="templates")
 
@@ -43,7 +43,7 @@ def predict():
                             native_country]).reshape(1,14)
 
         #creates a dataframe to hold the data and perform transformation
-        data = pd.DataFrame(data=array,columns=["age","workclass","fnlgwt","education","education_num","marital_status","occupation",
+        data = pandas.DataFrame(data=array,columns=["age","workclass","fnlgwt","education","education_num","marital_status","occupation",
            "relationship","race","sex","capital_gain","capital_loss","hours_per_week","native_country"])
 
         #performing transformation
@@ -61,7 +61,7 @@ def predict():
         if value == [1]:
             text = "This person will earn over $50k dollars"
         else:
-            text="This person will earn less than $50k dollars"
+            text = "This person will earn less than $50k dollars"
         #passing value gotten to template for rendering
         return render_template("adult.html",text=text)
 
@@ -69,7 +69,7 @@ app.route("/results",methods=["POST"])
 def results():
     #this gets the result from the user and return the json representation
     data = request.get_json(force=True)
-    frame = pd.DataFrame(data.values(),columns=columns)
+    frame = pandas.DataFrame(data.values(),columns=columns)
     frame["occupation"] = label.fit_transform(frame["occupation"])
     frame["workclass"] = label.fit_transform(frame["workclass"])
     frame["education"] = label.fit_transform(frame["education"])
@@ -89,3 +89,7 @@ def results():
 
 
     return jsonify(text)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
