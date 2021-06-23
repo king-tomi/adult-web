@@ -94,8 +94,14 @@
 
             </form>
         </section>
+        {% if text %}
         <div class="primary">
-                <p>{{ text }}</p>
+            <p>{{ text }}</p>
         </div>
+        {% else %}
+        <div class="primary">
+            <p>no prediction made</p>
+        </div>
+        {% endif %}
     </body>
 </html>
