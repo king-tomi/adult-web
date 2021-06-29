@@ -60,9 +60,9 @@ def predict():
         #predict over the features gotten from the user
         value = model.predict(data)
         if value == [1]:
-            text = "This person will earn over $50k dollars"
+            text = "This worker will earn over $50k dollars at the end of the year"
         else:
-            text = "This person will earn less than $50k dollars"
+            text = "This worker will earn less than $50k dollars at the end of the year"
         #passing value gotten to template for rendering
         return render_template("adult.html",text=text)
 
